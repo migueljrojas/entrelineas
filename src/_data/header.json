@@ -1,6 +1,30 @@
 [
     {
-        "name":"",
-        "url":""
+        "name":"Inicio",
+        "url":"/"
+    },
+    {
+        "name":"Sociedad",
+        "url":"/section"
+    },
+    {
+        "name":"Política",
+        "url":"/section"
+    },
+    {
+        "name":"Espectáculos",
+        "url":"/section"
+    },
+    {
+        "name":"Deportes",
+        "url":"/section"
+    },
+    {
+        "name":"Opinion",
+        "url":"/section"
+    },
+    {
+        "name":"A Fondo",
+        "url":"/section"
     }
 ]

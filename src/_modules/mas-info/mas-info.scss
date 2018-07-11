@@ -1,0 +1,46 @@
+.mas-info {
+    width: 35%;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    display: block;
+
+    @include mq(sm) {
+        width: 20%;
+        min-width: 200px;
+    }
+
+    &__heading {
+        background: $lightestGray;
+        padding: 5px;
+        color: $altColor;
+        font-size: 18px;
+
+        @include mq(sm) {
+            font-size: 21px;
+        }
+    }
+
+    &__title {
+        color: $darkestGray;
+        font-size: 14px;
+
+        @include mq(sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__list {
+        &__item {
+            @include trans;
+
+            display: flex;
+            padding: 10px 5px;
+            border-bottom: 1px solid $lightGray - #111;
+
+            &:hover {
+                background: $lightestGray;
+            }
+        }
+    }
+}

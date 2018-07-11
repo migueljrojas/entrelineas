@@ -1,0 +1,44 @@
+{
+    "menu":[
+        {
+            "name":"Inicio",
+            "url":"/"
+        },
+        {
+            "name":"Sociedad",
+            "url":"/section"
+        },
+        {
+            "name":"Política",
+            "url":"/section"
+        },
+        {
+            "name":"Espectáculos",
+            "url":"/section"
+        },
+        {
+            "name":"Deportes",
+            "url":"/section"
+        },
+        {
+            "name":"Opinion",
+            "url":"/section"
+        },
+        {
+            "name":"A Fondo",
+            "url":"/section"
+        },
+        {
+            "name":"La Editorial",
+            "url":"/editorial"
+        },
+        {
+            "name":"El Semanario",
+            "url":"/section"
+        },
+        {
+            "name":"Contacto",
+            "url":"/contacto"
+        }
+    ]
+}

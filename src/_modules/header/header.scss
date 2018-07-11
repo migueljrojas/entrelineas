@@ -1,18 +1,44 @@
-.header {
+.header{
 
     $h: &;
 
+    @include trans;
+
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index:10000;
+    background: $mainColor;
+    height: 50px;
+
+    @include mq(md){
+        height: auto;
+    }
+
+    &__container {
+        background: transparent;
+        transition: all $duration $easing;
+        @include mq(md) {
+            background: $mainColor;
+            padding: 10px;
+            height: 60px;
+            position: relative;
+        }
+    }
+
     &__hamburguer {
+        @include trans;
+
         cursor: pointer;
         width: 25px;
         height: 25px;
         margin: auto;
         position: absolute;
-        right: 32px;
-        top: 30px;
+        right: 15px;
+        top: 15px;
 
         span {
-            background-color: $mainColor;
+            background-color: $white;
             border-radius: 2px;
             content: '';
             display: block;
@@ -33,10 +59,318 @@
                 animation-direction:reverse;
             }
         }
+
+        @include mq(md){
+            display: none;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        width: 40%;
+        justify-content: flex-start;
+        position: relative;
+        z-index:5;
+        transition: all $duration $easing;
+        top:5px;
+
+        @include mq(md){
+            width:100px;
+            justify-content: flex-start;
+            top:20px;
+            left:10px;
+            float: left;
+            position: absolute;
+        }
+
+        img {
+            width: 100px;
+            transition: all $duration $easing;
+            position: absolute;
+            top:10px;
+
+            @include mq(md){
+                top:0;
+                width: 150px;
+            }
+        }
+    }
+
+    &__nav {
+        display: block;
+        position: absolute;
+        width: 101%;
+        background: $mainColor;
+        top:50px;
+        left:0;
+        z-index:1;
+        transition: all $duration $easing;
+        transform: translateX(-110%);
+        padding: 60px 0 20px;
+        border-bottom: 5px solid $white;
+        border-top: 1px solid $mainColor - #111;
+
+        @include mq(md) {
+            position: relative;
+            transform: translateX(0);
+            display: flex;
+            border:none;
+            padding: 0;
+            justify-content: space-between;
+            top:10px;
+            left: 170px;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+
+        @include mq(md){
+            flex-direction: row;
+        }
+
+        li {
+            position: relative;
+
+            &:after {
+                content: '';
+                height: 20px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 1px;
+                background: $white;
+            }
+        }
+
+        a {
+            color:$white;
+            display: block;
+            padding: 0 15px;
+            height: 40px;
+            line-height: 40px;
+            font-size:18px;
+            text-decoration: none;
+            transition: all $duration $easing;
+
+            @include mq(md){
+                font-size:14px;
+            }
+
+            &:hover {
+                color: $white;
+                background: rgba(0,0,0,.1);
+            }
+        }
+    }
+
+    &__side {
+        @include trans;
+        position: absolute;
+        display: flex;
+        width: 95%;
+        transform: translateX(-110%);
+        top: 60px;
+        z-index: 10;
+        right: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $mainColor - #111;
+        justify-content: flex-end;
+
+        @include mq(md){
+            width: auto;
+            right: 0;
+            z-index: 2;
+            top:10px;
+            border-bottom: none;
+            transform: translateX(0);
+        }
+    }
+
+    &__date {
+        position: relative;
+        color: $white;
+        line-height: 40px;
+        z-index: 1;
+        height: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-right: 1px solid $white;
+        font-size: 13px;
+
+        @include mq(sm){
+            font-size: 16px;
+        }
+    }
+
+    &__search {
+        $s:&;
+
+        @include trans;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        overflow: hidden;
+        height: 40px;
+        width: 40px;
+
+        &__input {
+            @include trans;
+            border-radius: 20px;
+            height: 40px;
+            width:100%;
+            position: absolute;
+            left:0;
+            top:0;
+            border: none;
+            background: $white;
+            border: 1px solid $mainColor;
+            padding: 0 20px;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border: 1px solid $mainColor - #111;
+            }
+        }
+
+        &__submit,
+        &__close {
+            height: 40px;
+            width:40px;
+            line-height: 38px;
+            background: transparent;
+            border: none;
+            text-align: center;
+            color: $mainColor;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index:5;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        &__submit {
+            right: 40px;
+        }
+
+        &.-open {
+            z-index: 2;
+            width: 100%;
+        }
+    }
+
+    &__social {
+        display: flex;
+        li {
+            margin-left:10px;
+
+            &:last-child {
+                a {
+                    z-index: 2;
+                }
+            }
+        }
+        a {
+            width:40px;
+            width:40px;
+            border-radius: 50%;
+            background: $white;
+            color: $mainColor;
+            display: block;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+
+    &.-ontop {
+        height: 70px;
+
+        @include mq(md) {
+            height: auto;
+        }
+
+        #{$h}__logo {
+            width: 70%;
+            top:10px;
+            img {
+                width: 180px;
+
+                @include mq(md){
+                    width: 450px;
+                }
+            }
+
+            @include mq(md){
+                width: 100%;
+                top: 50px;
+            }
+        }
+
+        #{$h}__nav {
+            top: 70px;
+            @include mq(md){
+                top:110px;
+                left: 0;
+            }
+        }
+
+        #{$h}__hamburguer {
+            background: transparent;
+            top: 25px;
+        }
+
+        #{$h}__container {
+            @include mq(md) {
+                height: 200px;
+                padding-top: 50px;
+            }
+        }
+
+        #{$h}__side {
+            top: 80px;
+
+            @include mq(md){
+                top:80px;
+            }
+        }
+
+        #{$h}__menu {
+            li{
+                &:before {
+                    bottom: -20px;
+                }
+                &.-active {
+                    @include mq(sm){
+
+                        &:before {
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & + main {
+            padding-top: 70px;
+
+            @include mq(md) {
+                padding-top: 200px;
+            }
+        }
     }
 
     &.-open {
         #{$h}__hamburguer {
+            z-index: 10;
             span:nth-child(1) {
                 animation:inT 0.6s $easing forwards;
             }
@@ -49,7 +383,15 @@
         }
 
         #{$h}__nav {
+            transform: translateY(0);
+        }
 
+        #{$h}__side {
+            transform: translateY(0);
+        }
+
+        #{$h}__logo {
+            width: 40%;
         }
     }
 }

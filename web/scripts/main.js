@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -14666,17 +14666,75 @@ var Header = function() {
     var header = $('.header');
     var body = $('body');
     var menuOpen = $('.header__hamburguer');
-    var menuClose = $('.header__nav__close');
+    var search = $('.header__search');
+    var searchOpen = $('.header__search__trigger');
+    var searchClose = $('.header__search__close');
+    var searchInput = $('.header__search__input');
+
+    header.addClass('-ontop');
 
     menuOpen.on('click', function(){
-        header.addClass('-open');
-        body.addClass('-hideOverflow');
+        header.toggleClass('-open');
+        body.toggleClass('-hideOverflow');
     });
 
-    menuClose.on('click', function(){
-        header.removeClass('-open');
-        body.removeClass('-hideOverflow');
+    searchOpen.on('click', function() {
+        search.addClass('-open');
+        searchInput.val('');
     });
+
+    searchClose.on('click', function() {
+        search.removeClass('-open');
+
+    });
+
+    $(function() {
+        $(window).scroll(function() {
+           var scroll = $(window).scrollTop();
+
+           if (scroll >= 100) {
+               header.removeClass('-ontop');
+           } else {
+               header.addClass('-ontop');
+           }
+        });
+    });
+
+    // Select all links with hashes
+$('a[href="#"]').click(function(e){
+    e.preventDefault();
+});
+
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top + -80
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+        });
+      }
+    }
+  });
+
 };
 
 module.exports = Header;
@@ -14687,13 +14745,43 @@ module.exports = Header;
 // Constructor
 var Slider = function() {
     var slider = $('._slider');
+    var sliderMulti = $('._slidermulti');
     if (slider) {
         slider.each(function(){
             $(this).slick({
                 dots: true,
                 fade: true,
-                arrows:  false,
+                arrows:  true,
                 autoplay: true
+            });
+        });
+    }
+    if (sliderMulti) {
+        sliderMulti.each(function(){
+            $(this).slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                autoplay: true,
+                responsive: [
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
             });
         });
     }
@@ -14702,6 +14790,43 @@ var Slider = function() {
 module.exports = Slider;
 
 },{}],7:[function(require,module,exports){
+'use strict';
+
+var Home = function() {
+    var context = $('.home');
+
+    if (context) {
+        var videoPlaceholder = $('.home__video__item');
+        var videoTitle = $('.home__video__title');
+        var videoSummary = $('.home__video__summary');
+        var videos = $('.home__video__list__item');
+
+        function videoReplacer(video, title, summary) {
+            var newSrc = 'https://www.youtube.com/embed/'+ video +'?autoplay=1';
+            console.log(newSrc);
+            videoPlaceholder.attr('src', newSrc);
+            videoTitle.html(title);
+            videoSummary.html(summary);
+        }
+
+        videos.each(function() {
+            var $this = $(this);
+
+            $this.on('click', function(){
+                var src = $this.data('video');
+                var title = $this.find('.home__video__list__item__title').html();
+                var summary = $this.find('.home__video__list__item__summary').html();
+
+                console.log(src);
+                videoReplacer(src, title, summary);
+            });
+        });
+    }
+}
+
+module.exports = Home;
+
+},{}],8:[function(require,module,exports){
 (function (global){
 // Main javascript entry point
 // Should handle bootstrapping/starting application
@@ -14712,6 +14837,7 @@ global.$ = global.jQuery = require('jquery');
 global._ = require('underscore');
 var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
+var Home = require('./home');
 
 $(function() {
     require('../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min');
@@ -14719,10 +14845,11 @@ $(function() {
 
     new Header();
     new Slider();
+    new Home();
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/header/header":5,"../_modules/slider/slider":6,"jquery":3,"underscore":4}]},{},[7])
+},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/header/header":5,"../_modules/slider/slider":6,"./home":7,"jquery":3,"underscore":4}]},{},[8])
 
 //# sourceMappingURL=main.js.map

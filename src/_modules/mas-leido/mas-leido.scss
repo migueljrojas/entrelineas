@@ -1,0 +1,40 @@
+.mas-leido {
+    &__heading {
+        background: $lightestGray;
+        padding: 5px;
+        color: $altColor;
+        font-size: 21px;
+    }
+
+    &__city {
+        margin: 0 0 5px;
+        font-size: 18px;
+    }
+
+    &__title {
+        color: $darkestGray;
+        font-size: 16px;
+    }
+
+    &__index {
+        font-size: 24px;
+        color: $altColor;
+        line-height: 1;
+        padding-right: 15px;
+        font-weight: 700;
+    }
+
+    &__list {
+        &__item {
+            @include trans;
+
+            display: flex;
+            padding: 10px 5px;
+            border-bottom: 1px solid $lightGray - #111;
+
+            &:hover {
+                background: $lightestGray;
+            }
+        }
+    }
+}

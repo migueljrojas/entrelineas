@@ -1,0 +1,59 @@
+extends ../_layouts/base
+
+include ../_modules/breadcrumb/breadcrumb
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.editorial
+        .container
+            .row
+                .col-xs-24
+                    +breadcrumb('Editorial')
+            .row.editorial__block
+                .col-xs-24.col-sm-20.col-sm-offset-2.col-md-18.col-md-offset-3
+                    p.editorial__text A los autores de la región les brindamos la posibilidad de mostrar sus producciones y acceder de esta manera a un mercado que se muestra hostil para quienes producen por fuera de los restringidos circuitos de consagración de los grandes grupos editoriales.
+                    p.editorial__text De esta manera, queremos contribuir al desarrollo cultural de la región y a proyectarlo en la dimensión nacional, llevando la palabra de los autores de la zona a todo el país. ENTRELíNEAS.INFO se propone instalar un catálogo de calidad en sus diversas colecciones, que resultará referencia para los autores y los lectores de todo el país.
+                    p.editorial__text Es decir, brindamos un nuevo servicio editorial, con un completo servicio. Ofrecemos nuestra experiencia de edición, diseño, corrección, distribución y comercialización de producciones literarias y ensayísticas, con un plantel de profesionales que evaluarán cada obra y asesorarán sobre las mejores alternativas para que llegue al público que la está esperando.
+                    p.editorial__text Proponemos la publicación de libros de los más diversos estilos, con un trabajo global y los costos más bajos del mercado editorial. Hacenos saber tu propuesta, ahora. Completá el formulario y enseguida nos comunicaremos con vos.
+                    
+                    form.editorial__form
+                        .row
+                            .col-xs-24.col-sm-12
+                                .editorial__form__group
+                                    input.editorial__form__input(type="text", placeholder="Nombre", name="nombre", id="nombre")
+                                    label.editorial__form__label(for="nombre") Nombre
+                                    span
+                            .col-xs-24.col-sm-12
+                                .editorial__form__group
+                                    input.editorial__form__input(type="text", placeholder="Apellido", name="nombre", id="nombre")
+                                    label.editorial__form__label(for="nombre") Apellido
+                                    span
+                            .col-xs-24.col-sm-12
+                                .editorial__form__group
+                                    input.editorial__form__input(type="email", placeholder="E-mail", name="nombre", id="nombre")
+                                    label.editorial__form__label(for="nombre") E-mail
+                                    span
+                            .col-xs-24.col-sm-12
+                                .editorial__form__group
+                                    input.editorial__form__input(type="text", placeholder="Teléfono", name="nombre", id="nombre")
+                                    label.editorial__form__label(for="nombre") Teléfono
+                                    span
+                            .col-xs-24.col-sm-16
+                                .editorial__form__group
+                                    textarea.editorial__form__input.editorial__form__input--textarea(placeholder="Mensaje", name="mensaje", id="mensaje")
+                                    label.editorial__form__label(for="mensaje") Mensaje
+                                    span
+                            .col-xs-24.col-sm-8
+                                .editorial__form__group.editorial__form__group--checkbox
+                                    input.editorial__form__checkbox(type="checkbox", id="novedades")
+                                    label(for="novedades") Quiero recibir las novedades de Entrelíneas.info
+                                .editorial__form__group.editorial__form__group--checkbox
+                                    input.editorial__form__checkbox(type="checkbox", id="terms")
+                                    label(for="terms")
+                                        | Acepto los  
+                                        a(href="#") términos y condiciones de uso
+                            .col-xs-24
+                                button.editorial__form__submit(type="submit") Enviar

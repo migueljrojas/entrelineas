@@ -1,0 +1,13 @@
+mixin mas-leido(title, titleBold)
+    .mas-leido
+        .mas-leido__heading
+            span= title  
+            strong= titleBold
+        ul.mas-leido__list
+            - for (var i = 0; i < 5; ++i) {
+              li.mas-leido__list__item
+                span.mas-leido__index=i+1
+                a(href="/nota")
+                    h3.mas-leido__city Ciudad
+                    p.mas-leido__title Loren ipsum dolor sin amet, consectetur adpiscing elit
+            - }

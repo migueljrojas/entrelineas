@@ -1,15 +1,16 @@
 $white: #fff;
 $black: #000;
 $corpBlack: #3e372c;
-$darkestGray: #333;
-$darkGray: #787871;
+$darkestGray: #212121;
+$darkGray: #666;
 $midGray: #999;
 $lightGray: #ebebeb;
 $lightestGray: #f4f7f8;
-$blue: #053f7a;
-$blueGray: #bbc9c9;
+$red: #ed1c24;
+$blue: #005d78;
 
-$mainColor: $blue;
+$mainColor: $red;
+$altColor: $blue;
 $link: $mainColor;
 $linkHover: $mainColor + #333;
 $text: $white;
@@ -36,3 +37,4 @@ $easing: cubic-bezier(.785, .135, .15, .86);
 $easingLight: ease;
 
 $mainFont: 'Open Sans', sans-serif;
+$altFont: 'Source Sans Pro', sans-serif;

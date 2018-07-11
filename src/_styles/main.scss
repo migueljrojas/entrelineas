@@ -39,6 +39,16 @@ ul {
     margin: 0;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    font-family: $altFont;
+    font-weight: 700;
+}
+
+main {
+    @include trans;
+    padding-top: 70px;
+}
+
 // Styling on warning for users on IE7 or below
 .browsehappy {
   text-align: center;

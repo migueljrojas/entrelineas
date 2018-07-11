@@ -1,0 +1,20 @@
+.related-articles {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        display:flex;
+        max-width: 300px;
+
+        i {
+            color: $mainColor;
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        margin: 0 0 0 10px;
+        color: $altColor;
+    }
+}

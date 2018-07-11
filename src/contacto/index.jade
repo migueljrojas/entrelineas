@@ -1,0 +1,55 @@
+extends ../_layouts/base
+
+include ../_modules/breadcrumb/breadcrumb
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.contacto
+        .container
+            .row
+                .col-xs-24
+                    +breadcrumb('Contacto')
+            .row.contacto__block
+                .col-xs-24.col-sm-20.col-sm-offset-2.col-md-18.col-md-offset-3
+                    h1.contacto__title Contactanos
+                    form.contacto__form
+                        .row
+                            .col-xs-24.col-sm-12
+                                .contacto__form__group
+                                    input.contacto__form__input(type="text", placeholder="Nombre", name="nombre", id="nombre")
+                                    label.contacto__form__label(for="nombre") Nombre
+                                    span
+                            .col-xs-24.col-sm-12
+                                .contacto__form__group
+                                    input.contacto__form__input(type="text", placeholder="Apellido", name="apellido", id="apellido")
+                                    label.contacto__form__label(for="nombre") Apellido
+                                    span
+                            .col-xs-24.col-sm-12
+                                .contacto__form__group
+                                    input.contacto__form__input(type="email", placeholder="E-mail", name="email", id="email")
+                                    label.contacto__form__label(for="nombre") E-mail
+                                    span
+                            .col-xs-24.col-sm-12
+                                .contacto__form__group
+                                    input.contacto__form__input(type="text", placeholder="Teléfono", name="telefono", id="telefono")
+                                    label.contacto__form__label(for="telefono") Teléfono
+                                    span
+                            .col-xs-24.col-sm-16
+                                .contacto__form__group
+                                    textarea.contacto__form__input.contacto__form__input--textarea(placeholder="Mensaje", name="mensaje", id="mensaje")
+                                    label.contacto__form__label(for="mensaje") Mensaje
+                                    span
+                            .col-xs-24.col-sm-8
+                                .contacto__form__group.contacto__form__group--checkbox
+                                    input.contacto__form__checkbox(type="checkbox", id="novedades")
+                                    label(for="novedades") Quiero recibir las novedades de Entrelíneas.info
+                                .contacto__form__group.contacto__form__group--checkbox
+                                    input.contacto__form__checkbox(type="checkbox", id="terms")
+                                    label(for="terms")
+                                        | Acepto los  
+                                        a(href="#") términos y condiciones de uso
+                            .col-xs-24
+                                button.contacto__form__submit(type="submit") Enviar

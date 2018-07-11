@@ -1,0 +1,8 @@
+mixin related-articles(pages, mode)
+    ul.related-articles(class=mode)
+        - for (var i = 0; i < pages; ++i) {
+          li.related-articles__item
+            i.fa.fa-align-left
+            a(href="/section")
+                h3.related-articles__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        - }

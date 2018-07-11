@@ -1,4 +1,287 @@
 extends _layouts/base
 
+include _modules/ciudades/ciudades
+include _modules/ads/ads
+include _modules/tapa/tapa
+include _modules/article/article
+include _modules/related-articles/related-articles
+include _modules/slider/slider
+include _modules/mas-leido/mas-leido
+
 block content
     main.home
+        section.home__block
+            .container.home__container
+                .row
+                    .col-xs-24
+                        +ciudades
+                    .col-xs-24.col-md-18.home__main
+                        .row
+                            .col-xs-24
+                                +article('cover', '', false, false, false)
+                                ._divider
+                                +related-articles(1)
+                            each item in site.data.home.main.slider
+                                .col-xs-24.col-sm-8
+                                    +article('', 'gray', false, false, true)
+                                
+                    .hidden-xs.hiddem-sm.col-md-6.home__main__sidebar
+                        +ads
+                        +tapa
+                    
+        ._divider
+        section.home__block
+            .container.home__container
+                .row
+                    .col-xs-24.col-md-18
+                        .home__seccion
+                            .home__seccion__index
+                                .home__seccion__index__title 
+                                    span Sociedad
+                                .home__sextion__index__content
+                                    span.home__seccion__index__subtitle Temas de Hoy
+                                    ul.home__seccion__index__list
+                                        li
+                                            a(href="/busqueda") Inflación
+                                        li
+                                            a(href="/busqueda") Indec
+                                        li
+                                            a(href="/busqueda") La Costa
+                                        li
+                                            a(href="/busqueda") Mar de Ajó
+                                        li
+                                            a(href="/busqueda") Bomberos Voluntarios
+                                        li
+                                            a(href="/busqueda") Inundaciones
+                                        li
+                                            a(href="/busqueda") La región
+                                        li
+                                            a(href="/busqueda") Castelli
+                                        li
+                                            a(href="/busqueda") Clima
+                                        li
+                                            a(href="/busqueda") La Región
+
+                            .home__seccion__articles
+                                .row
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('picbottom', 'gray', false, true, false)
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('picbottom', 'gray', false, true, false)
+                                    ._divider
+                                    .col-xs-24.col-sm-8.home__col
+                                        +article('compact', '', true, true, false)
+                                    .col-xs-24.col-sm-8.home__col
+                                        +article('compact', '', true, true, false)
+                                    .col-xs-24.col-sm-8.home__col
+                                        +article('compact', '', true, true, false)
+                            
+                    .col-xs-24.col-md-6
+                        +mas-leido('Lo ', '+ leído')
+                        
+        ._divider
+        section.home__block
+            .container.home__container
+                .row
+                    .col-xs-24.col-md-18
+                        .home__seccion
+                            .home__seccion__index
+                                .home__seccion__index__title 
+                                    span Política
+                                .home__sextion__index__content
+                                    span.home__seccion__index__subtitle Temas de Hoy
+                                    ul.home__seccion__index__list
+                                        li
+                                            a(href="/busqueda") Inflación
+                                        li
+                                            a(href="/busqueda") Indec
+                                        li
+                                            a(href="/busqueda") La Costa
+                                        li
+                                            a(href="/busqueda") Mar de Ajó
+                                        li
+                                            a(href="/busqueda") Bomberos Voluntarios
+                                        li
+                                            a(href="/busqueda") Inundaciones
+                                        li
+                                            a(href="/busqueda") La región
+                                        li
+                                            a(href="/busqueda") Castelli
+                                        li
+                                            a(href="/busqueda") Clima
+                                        li
+                                            a(href="/busqueda") La Región
+
+                            .home__seccion__articles
+                                .row
+                                    .col-xs-24.col-sm-8.col-md-10.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-8.col-md-7.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-8.col-md-7.home__col
+                                        +article('', '', false, true, false)
+                                    
+                            
+                    .col-xs-24.col-md-6
+                        +article('', 'gray', true, true, true)
+                        br
+                        +article('', 'gray', true, true, true)
+                        br
+                        +article('', 'gray', true, true, true)
+                        
+        ._divider
+        section.home__block
+            .container.home__container
+                .row
+                    .col-xs-24.col-md-18
+                        .home__seccion
+                            .home__seccion__index
+                                .home__seccion__index__title 
+                                    span Espectáculos
+                                .home__sextion__index__content
+                                    span.home__seccion__index__subtitle Temas de Hoy
+                                    ul.home__seccion__index__list
+                                        li
+                                            a(href="/busqueda") Inflación
+                                        li
+                                            a(href="/busqueda") Indec
+                                        li
+                                            a(href="/busqueda") La Costa
+                                        li
+                                            a(href="/busqueda") Mar de Ajó
+                                        li
+                                            a(href="/busqueda") Bomberos Voluntarios
+                                        li
+                                            a(href="/busqueda") Inundaciones
+                                        li
+                                            a(href="/busqueda") La región
+                                        li
+                                            a(href="/busqueda") Castelli
+                                        li
+                                            a(href="/busqueda") Clima
+                                        li
+                                            a(href="/busqueda") La Región
+
+                            .home__seccion__articles
+                                .row
+                                    .col-xs-24.home__col
+                                        +article('cover', '', false, true, false)
+                                    
+                            
+                    .col-xs-24.col-md-6
+                        +article('', 'gray', false, true, false)
+                        
+        section.home__block.home__block--dark.home__video
+            .container.home__container
+                .row
+                    .col-xs-24
+                        .home__video__heading
+                            img(src="/images/logo.png")
+                            span Video
+                    .col-xs-24.col-md-16
+                        .embed-responsive.embed-responsive-16by9.home__video__wrapper
+                            iframe.embed-responsive-item.home__video__item(src="https://www.youtube.com/embed/dh2ZJEptrcY?autoplay=1", allowfullscreen)
+                        h3.home__video__title Titulo del video
+                        p.home__video__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    .col-xs-24.col-md-8
+                        ul.home__video__list
+                            li.home__video__list__item(data-video="axvyehnvRqo")
+                                .home__video__list__item__thumb
+                                    img(src="http://i3.ytimg.com/vi/axvyehnvRqo/hqdefault.jpg")
+                                h4.home__video__list__item__title Titulo del video 1
+                                p.home__video__list__item__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 1.
+                            li.home__video__list__item(data-video="eu_00_4PHps")
+                                .home__video__list__item__thumb
+                                    img(src="http://i3.ytimg.com/vi/axvyehnvRqo/hqdefault.jpg")
+                                h4.home__video__list__item__title Titulo del video 2
+                                p.home__video__list__item__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 2.
+                            li.home__video__list__item(data-video="nThwt8_DZlU")
+                                .home__video__list__item__thumb
+                                    img(src="http://i3.ytimg.com/vi/nThwt8_DZlU/hqdefault.jpg")
+                                h4.home__video__list__item__title Titulo del video 3
+                                p.home__video__list__item__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 3.
+                            li.home__video__list__item(data-video="m6aaxiEPZrs")
+                                .home__video__list__item__thumb
+                                    img(src="http://i3.ytimg.com/vi/m6aaxiEPZrs/hqdefault.jpg")
+                                h4.home__video__list__item__title Titulo del video 4
+                                p.home__video__list__item__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 4.
+                            li.home__video__list__item(data-video="Oq6wqJQwDBo")
+                                .home__video__list__item__thumb
+                                    img(src="http://i3.ytimg.com/vi/Oq6wqJQwDBo/hqdefault.jpg")
+                                h4.home__video__list__item__title Titulo del video 5
+                                p.home__video__list__item__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 5.
+                                
+                        
+        
+        section.home__block
+            .container.home__container
+                .row
+                    .col-xs-24.col-md-18
+                        .home__seccion
+                            .home__seccion__index
+                                .home__seccion__index__title 
+                                    span Más Información
+                                .home__sextion__index__content
+                                    span.home__seccion__index__subtitle Temas de Hoy
+                                    ul.home__seccion__index__list
+                                        li
+                                            a(href="/busqueda") Inflación
+                                        li
+                                            a(href="/busqueda") Indec
+                                        li
+                                            a(href="/busqueda") La Costa
+                                        li
+                                            a(href="/busqueda") Mar de Ajó
+                                        li
+                                            a(href="/busqueda") Bomberos Voluntarios
+                                        li
+                                            a(href="/busqueda") Inundaciones
+                                        li
+                                            a(href="/busqueda") La región
+                                        li
+                                            a(href="/busqueda") Castelli
+                                        li
+                                            a(href="/busqueda") Clima
+                                        li
+                                            a(href="/busqueda") La Región
+
+                            .home__seccion__articles
+                                .row
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    ._divider--sm
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    ._divider--sm
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    ._divider--sm
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                                    .col-xs-24.col-sm-12.home__col
+                                        +article('', '', false, true, false)
+                    
+                    .col-xs-24.col-md-6
+                        +ads
+                        .home__author
+                            h4.home__author__title Columnista invitado
+                            .home__author__img
+                                img(src="http://img4.bdbphotos.com/images/700x350/o/t/otu3ns2oydl5oy.jpg?skj2io4l")
+                            .home__author__data
+                                h3.home__author__data__name
+                                    span John Doe
+                                    a(href="#")
+                                        i.fa.fa-envelope-o
+                            p.home__author__intro Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            
+                        +ads(600)
+                        
+                        .home__editor
+                            h4.home__editor__title Columna del editor
+                            +article('','',true,true,false)

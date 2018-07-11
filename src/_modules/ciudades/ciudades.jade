@@ -1,0 +1,13 @@
+mixin ciudades()
+    .ciudades
+        .row
+            .col-xs-24.col-sm-6
+                h2.ciudades__title
+                    |Ciudad  
+                    br
+                    | x Ciudad
+            .col-xs-24.col-sm-18
+                ul.ciudades__list
+                    each item in site.data.ciudades
+                        li
+                            a(href=item.url)= item.name

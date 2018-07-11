@@ -1,0 +1,10 @@
+mixin breadcrumb(current, path)
+    ul.breadcrumb
+        li
+            a(href="/") ENTRELÍNEAS
+        if path
+            each item in path
+                li
+                    a(href=item.url) item.name
+        li= current
+            

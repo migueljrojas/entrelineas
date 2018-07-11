@@ -1,0 +1,154 @@
+.article {
+    $a:&;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+
+    &__img {
+        overflow: hidden;
+        height: 0;
+        position: relative;
+        padding-bottom: 56.5%;
+        max-width: 100%;
+        flex-grow: 2;
+
+        img {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    &__heading {
+        display: flex;
+        height: 28px;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    &__section {
+        padding: 2px 5px;
+        background: $mainColor;
+        color: $white;
+        font-weight: 700;
+        font-family: $altFont;
+        margin-right: 10px;
+    }
+
+    &__date {
+        color: $altColor;
+        font-size: 14px;
+    }
+
+    &__data {
+    }
+
+    &__title {
+        margin: 0 0 15px;
+        color: $darkestGray;
+        font-size: 1.4em;
+    }
+
+    &__summary {
+        margin: 0;
+    }
+
+    &--cover {
+
+        #{$a}__data {
+
+            @include mq(sm){
+                flex-basis: 30%;
+                order:2;
+                padding-left: 15px;
+            }
+        }
+        #{$a}__img {
+            flex-basis: 70%;
+            padding-bottom: 46.5%;
+
+            @include mq(sm){
+                order:1;
+            }
+        }
+        #{$a}__title {
+            font-size: 1.8em;
+            color: $altColor;
+        }
+        #{$a}__heading {
+            margin-bottom: 20px;
+        }
+
+        &:after {
+            content: '';
+            height: 15px;
+            order: 3;
+            width: 100%;
+            background: $white;
+        }
+    }
+
+    &--picbottom {
+        #{$a}__img {
+            order:2;
+            margin-top: 10px;
+        }
+        #{$a}__data {
+            order: 1;
+        }
+    }
+
+    &--gray {
+        background: $lightestGray;
+
+        #{$a}__data {
+            padding: 10px;
+        }
+    }
+
+    &--picleft {
+        #{$a}__data {
+
+            @include mq(sm){
+                flex-basis: 60%;
+                order:1;
+                padding-left: 15px;
+            }
+        }
+
+        #{$a}__img {
+            flex-basis: 40%;
+            padding-bottom: 26.5%;
+
+            @include mq(sm){
+                //order:2;
+            }
+        }
+    }
+
+    &--picright {
+        #{$a}__data {
+
+            @include mq(sm){
+                flex-basis: 60%;
+                order:1;
+                padding-right: 15px;
+            }
+        }
+
+        #{$a}__img {
+            flex-basis: 40%;
+            padding-bottom: 26.5%;
+
+            @include mq(sm){
+                order:2;
+            }
+        }
+    }
+
+    &--compact {
+        #{$a}__title {
+            font-size: 1.2em;
+        }
+    }
+}

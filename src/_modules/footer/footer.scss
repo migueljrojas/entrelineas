@@ -1,3 +1,114 @@
 .footer {
-    
+    background: $darkestGray;
+    padding: 40px 0;
+    color: $white;
+
+    &__left {
+
+        @include mq(md){
+            border-right: 1px solid $darkGray;
+        }
+
+        a {
+            color: $white;
+        }
+    }
+
+    &__right {
+        border-bottom: 1px solid $darkGray;
+
+        a {
+            color: $midGray;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+
+    &__title {
+        margin: 0 0 20px;
+    }
+
+    &__menu {
+        columns: 2;
+        column-gap:20px;
+        padding-bottom: 40px;
+
+        @include mq(sm){
+            padding-bottom: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__heading {
+        padding-bottom: 20px;
+
+        @include mq(sm){
+            padding-left: 20px;
+        }
+
+        &__logo {
+            width: 300px;
+            background: $mainColor;
+            padding: 5px;
+            display: inline-block;
+
+            @include mq(sm){
+                margin-right: 15px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &__tagline {
+            font-size: 24px;
+            font-family: $altFont;
+            line-height: 50px;
+            vertical-align: bottom;
+            display: inline-block;
+        }
+    }
+
+    &__cities {
+        padding-bottom: 17px;
+
+        @include mq(sm){
+            padding-left: 20px;
+        }
+
+        &__list {
+            columns: 2;
+            column-gap:20px;
+
+            @include mq(sm){
+                columns: 4;
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__copy {
+        color:$midGray;
+        font-size: 12px;
+        padding-top: 20px;
+
+        p {
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+    }
+
+    &__creatos {
+        padding-top: 20px;
+        text-align: center;
+    }
 }

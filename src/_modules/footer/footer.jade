@@ -1,1 +1,26 @@
 footer.footer
+    .container.footer__container
+        .row
+            .col-xs-24.col-sm-12.col-md-8.footer__left
+                h2.footer__title Secciones
+                ul.footer__menu
+                    each item in site.data.footer.menu
+                        li
+                            a(href=item.url)= item.name
+            .col-xs-24.col-sm-12.col-md-16.footer__right
+                .footer__heading
+                    .footer__heading__logo
+                        img(src="/images/logo.png")
+                    span.footer__heading__tagline El diario que te informa
+                .footer__cities
+                    ul.footer__cities__list
+                        each item in site.data.ciudades
+                            li
+                                a(href=item.url)= item.name
+        .row
+            .col-xs-24.col-sm-16.footer__copy
+                p Copyright Año 2011 - 2016 | Todos los derechos reservados
+                p Diario Entrelíneas | Directora: Natalia Aiello. CUIT: 20-27856972-2.
+                p Redacción: 4 N° 835, Santa Teresita (La Costa). - Dirección Nacional de Derecho de Autor: N° En trámite.
+            .col-xs-24.col-sm-8.footer__creatos
+                img(src="/images/logo-creatos.png")

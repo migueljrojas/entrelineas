@@ -1,0 +1,158 @@
+extends ../_layouts/base
+
+include ../_modules/photo/photo
+include ../_modules/ads/ads
+include ../_modules/mas-info/mas-info
+include ../_modules/mas-leido/mas-leido
+include ../_modules/article/article
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.nota
+        section.nota__hero
+            .container
+                .row
+                    .col-xs-24
+                        .nota__hero__heading
+                            span.nota__hero__heading__data
+                                i.fa.fa-clock-o  
+                                | 10/05/2018 - 20:26 | Clarin.com | Política
+                    .col-xs-24.col-md-18.col-md-offset-3
+                        span.nota__hero__seccion Testimonio
+                        h1.nota__hero__title Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        h2.nota__hero__summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+                    .col-xs-24
+                        .nota__hero__photo
+                            +photo('https://picsum.photos/1200/800/', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+        ._divider
+        section.nota__body
+            .container
+                .row
+                    .col-xs-24.col-md-16.nota__body__main
+                        .row.nota__body__heading
+                            .col-xs-24.col-sm-12
+                                .nota__author
+                                    .nota__author__img
+                                        img(src="http://img4.bdbphotos.com/images/700x350/o/t/otu3ns2oydl5oy.jpg?skj2io4l")
+                                    .nota__author__data
+                                        h3.nota__author__data__name
+                                            span John Doe
+                                            a(href="#")
+                                                i.fa.fa-envelope-o
+                                            
+                            .col-xs-24.col-sm-12.nota__share__col
+                                .nota__share
+                                    ul.nota__share__actions
+                                        li
+                                            a(href="#")
+                                                i.fa.fa-facebook
+                                        li
+                                            a(href="#")
+                                                i.fa.fa-twitter
+                                        li
+                                            a(href="#")
+                                                i.fa.fa-envelope-o
+                                        li
+                                            a(href="#")
+                                                i.fa.fa-print
+                                    p.nota__share__comments
+                                        span (402)  
+                                        span.small comentarios
+                        ._divider
+                        .row.nota__body__content
+                            .col-xs-24
+                                p.nota__text.nota__text--first Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                                +photo('https://inhabitat.com/wp-content/blogs.dir/1/files/2010/09/moksha-tower-vertical-cemetery-6.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit')
+                                +mas-info
+                                p.nota__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                                p.nota__text Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+                                p.nota__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                                p.nota__text Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+                                p.nota__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                                p.nota__text Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+                                ._divider
+                                .nota__taxonomy
+                                    .nota__taxonomy__title Archivado en:
+                                    ul.nota__taxonomy__list
+                                        each item in site.data.home.tags
+                                            li
+                                                a(href="/busqueda")=item
+                                ._divider
+                                
+                                .row.nota__related
+                                    .col-xs-24
+                                        h4.nota__related__title Te puede interesar
+                                        ._divider
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    .col-xs-24.col-sm-8
+                                        +article('compact', '', false, true, true)
+                                    
+                                
+                    .col-xs-24.col-md-8.nota__body__sidebar
+                        +ads
+                        .nota__body__sidebar__newsletter
+                            p.nota__body__sidebar__newsletter__title Suscribite al newsletter
+                            form
+                                input.nota__body__sidebar__newsletter__input(type="email", placeholder="Ingresa tu email")
+                                button.nota__body__sidebar__newsletter__submit(type="submit") Suscribir
+                        ._divider
+                        +mas-leido('Te puede ', 'interesar')
+                        +ads
+                        
+                ._divider
+                
+                .row
+                    .col-xs-24
+                        .nota__facebook
+                            img.img-responsive(src="https://cdn.elev.io/file/uploads/jEC8HySvDwISUdSg8iqChOB9kMRsiM1RCnIFiA0173M/DeFUyjjBe9gYYEv3mhKg9uBjt0cJ9iDFNVI7wDzTOk4/facebook%20comments%20gadget-YG8.png")
+                ._divider
+                
+                .row
+                    .col-xs-24
+                        .nota__embed
+                            iframe.nota__embed__item(src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FEntrelineas.info%2Fposts%2F1957520010959772&width=500", scrolling="no", frameborder="0", allowTransparency="true", allow="encrypted-media")
+                ._divider
+                
+                .row
+                    .col-xs-24
+                        .nota__embed
+                            blockquote(class="twitter-tweet", data-lang="es")
+                                p(lang="es", dir="ltr")
+                                    | El bloque oficialista de La Costa y el Colegio de Farmacéuticos preparan una ordenanza para proteger al sector de Farmacity: <a href="https://t.co/tTUrdAl7aa">https://t.co/tTUrdAl7aa</a> <a href="https://t.co/Q4kbCGG8XR">pic.twitter.com/Q4kbCGG8XR</a></p>&mdash; Entrelíneas.info (@Entrelineasinfo) <a href="https://twitter.com/Entrelineasinfo/status/994998844457934849?ref_src=twsrc%5Etfw">11 de mayo de 2018</a>
+                            | <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                ._divider
+                
+                .row
+                    .col-xs-24.col-sm-12
+                        h4.nota__related__title.nota__related__title--red Lo último de Política
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)
+
+                    .col-xs-24.col-sm-12
+                        h4.nota__related__title.nota__related__title--red Lo último de Espectáculos
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)
+                        ._divider
+                        +article('picleft', '', false, true, true)

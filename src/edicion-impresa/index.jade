@@ -1,0 +1,87 @@
+extends ../_layouts/base
+
+include ../_modules/breadcrumb/breadcrumb
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.impresa
+        .container
+            .row
+                .col-xs-24
+                    +breadcrumb('Edición impresa')
+                    
+        section.impresa__hero
+            .container
+                .row
+                    .col-xs-24
+                        h1.impresa__hero__title 10 de mayo de 2018
+                ._divider
+                .row
+                    .col-xs-24.col-md-4
+                        .impresa__hero__share
+                            .impresa__hero__share__heading
+                                span Compartí  
+                                strong esta edición
+                            ul.impresa__hero__share__actions
+                                li
+                                    a(href="#")
+                                        i.fa.fa-facebook
+                                li
+                                    a(href="#")
+                                        i.fa.fa-twitter
+                                li
+                                    a(href="#")
+                                        i.fa.fa-envelope-o
+                                li
+                                    a(href="#")
+                                        i.fa.fa-print
+                                        
+                        .impresa__hero__delivery
+                            .impresa__hero__delivery__heading
+                                span Todos los  
+                                strong Jueves  
+                                span A solo $8  
+                            ul.impresa__hero__delivery__content
+                                span Recibila en
+                                strong Tu Casa
+                        
+                    .col-xs-24.col-sm-12.col-md-10
+                        .impresa__hero__cover
+                            h2.impresa__hero__cover__title Edición Central
+                            .impresa__hero__cover__img
+                                img(src="/images/tapa-1.jpg")
+                    .col-xs-24.col-sm-12.col-md-10
+                        .impresa__hero__cover
+                            h2.impresa__hero__cover__title Edición Costa Atlántica
+                            .impresa__hero__cover__img
+                                img(src="/images/tapa-2.jpg")
+                                
+        section.impresa__covers
+            .container
+                .row
+                    .col-xs-24
+                        .impresa__covers__heading
+                            h2.impresa__covers__heading__title
+                                span Ediciones  
+                                strong Anteriores
+                            .impresa__covers__heading__selector
+                                a.impresa__covers__heading__selector__item.-active(href="#") Edición central
+                                a.impresa__covers__heading__selector__item(href="#") Edición Costa Atlántica
+                        
+                        ul.impresa__covers__years
+                            li.impresa__covers__years__item.-active 2018
+                            li.impresa__covers__years__item 2017
+                            li.impresa__covers__years__item 2016
+                            li.impresa__covers__years__item 2015
+                            li.impresa__covers__years__item 2014
+                            
+                        ul.impresa__covers__list
+                            - for (var i = 0; i < 12; ++i) {
+                                li.impresa__covers__list__item
+                                    a.impresa__covers__list__item__img(href="#")
+                                        img(src="/images/tapa.jpg")
+                            - }
+                            

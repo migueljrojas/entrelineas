@@ -1,0 +1,82 @@
+extends ../_layouts/base
+
+include ../_modules/article/article
+include ../_modules/breadcrumb/breadcrumb
+include ../_modules/ads/ads
+include ../_modules/mas-leido/mas-leido
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.seccion
+        section.seccion__block
+            .container.seccion__container
+                .row
+                    .col-xs-24
+                        +breadcrumb('Política')
+                        
+                    .col-xs-24.col-sm-16
+                        +article('cover', 'gray', false, true, false)
+                                
+                    .col-xs-24.col-sm-6
+                        +article('', '', false, true, false)
+                        
+        ._divider
+        section.seccion__block
+            .container
+                .row
+                    .col-xs-24.col-md-16.seccion__main
+                        .row.seccion__block
+                            .col-xs-24.col-sm-16
+                                +article('picbottom', 'gray', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                        ._divider
+                        .row.seccion__block
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                        ._divider
+                        .row.seccion__block
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                        ._divider
+                        .row.seccion__block
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                            .col-xs-24.col-sm-8
+                                +article('', '', false, true, false)
+                        ._divider
+                        .row.seccion__block
+                            .col-xs-24
+                                +article('picleft', '', false, true, false)
+                                ._divider
+                                +article('picleft', '', false, true, false)
+                                ._divider
+                                +article('picleft', '', false, true, false)
+                                ._divider
+                                +article('picleft', '', false, true, false)
+                                ._divider
+                                button.seccion__showmore Ver más de Política
+                    
+                    .col-xs-24.col-md-8.seccion__sidebar
+                        +ads
+                        .seccion__sidebar__newsletter
+                            p.seccion__sidebar__newsletter__title Suscribite al newsletter
+                            form
+                                input.seccion__sidebar__newsletter__input(type="email", placeholder="Ingresa tu email")
+                                button.seccion__sidebar__newsletter__submit(type="submit") Suscribir
+                        ._divider
+                        +mas-leido('Lo más ', 'leído')
+                        +ads

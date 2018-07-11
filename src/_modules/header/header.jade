@@ -1,2 +1,44 @@
 header.header
+    .container.header__container
+        .header__logo
+                a(href="/")
+                    img(src="/images/logo.png")            
+            .header__hamburguer
+                span
+                span
+                span
+                    
+            nav.header__nav
+                ul.header__menu
+                    each item in site.data.header
+                        li
+                            a(href=item.url)= item.name
+                                if item.submenu
+                                    i.material-icons keyboard_arrow_down
+                            if item.submenu
+                                ul.header__submenu
+                                    each link in item.submenu
+                                        li
+                                            a(href=link.url)= link.name
+            .header__side
+                .header__date
+                    | Sábado  
+                    strong 7 de abril  
+                    | de 2018
+                ul.header__social
+                    each red in site.data.social
+                        li
+                            a(href=red.url, target="_blank")
+                                i(class="fa fa-#{red.name}")
+                    li
+                        a.header__search__trigger(href="#")
+                            i(class="fa fa-search")
+                        form.header__search
+                            input.header__search__input(type="text")
+                            a.header__search__close
+                                i.fa.fa-times
+                            button.header__search__submit(type="submit")
+                                i.fa.fa-search
+                                
+                                
     

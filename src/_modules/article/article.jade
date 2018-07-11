@@ -1,0 +1,22 @@
+mixin article(mode, ztyle, nopic, nosection, nosummary)
+    
+    article.article(class="#{mode === 'cover' ? 'article--cover' : ''} #{mode === 'picbottom' ? 'article--picbottom' : ''} #{mode === 'compact' ? 'article--compact' : ''} #{ztyle === 'gray' ? 'article--gray' : ''} #{mode === 'picleft' ? 'article--picleft' : ''} #{mode === 'picright' ? 'article--picright' : ''}" )
+        if nopic == false
+            .article__img
+                a(href="/nota")
+                    img(src="https://picsum.photos/720/480/")
+        .article__data
+            .article__heading
+                if nosection == false
+                    .article__section Sección
+                .article__date 7 de Abril 
+            a(href="/nota")
+                h3.article__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            if nosummary == false
+                p.article__summary sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            
+    
+            
+        
+            
+        

@@ -1,0 +1,11 @@
+mixin mas-info(spec)
+    .mas-info
+        .mas-info__heading
+            span Más  
+            strong información
+        ul.mas-info__list
+            - for (var i = 0; i < 5; ++i) {
+              li.mas-info__list__item
+                a(href="/nota")
+                    p.mas-info__title Loren ipsum dolor sin amet, consectetur adpiscing elit
+            - }

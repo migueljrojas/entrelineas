@@ -1,0 +1,5 @@
+mixin photo(url, caption, mode)
+    .photo(class="#{mode === 'vert' ? 'photo--vert' : ''} #{mode === 'float-left' ? 'photo--left' : ''} #{mode === 'float-right' ? 'photo--right' : ''}")
+        .photo__img
+            img(src=url)
+        p.photo__caption= caption

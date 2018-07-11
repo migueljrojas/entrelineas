@@ -1,0 +1,67 @@
+.tapa {
+    &__heading {
+        display: flex;
+
+        &__date {
+            background: $darkestGray;
+            padding: 5px;
+
+            ._day,
+            ._month {
+                display: block;
+                font-weight: 700;
+                font-family: $altFont;
+                color: $white;
+            }
+
+            ._day {
+                font-size: 1.8em;
+                line-height: 1;
+                color: $mainColor;
+            }
+        }
+
+        &__title {
+            padding: 10px;
+            background: $lightestGray;
+            flex-grow: 2;
+
+            strong {
+                display: block;
+            }
+        }
+    }
+
+    &__cover {
+        padding: 10px 0;
+        border-top: 1px solid $lightGray - #111;
+    }
+
+    &__footer {
+        background: $darkestGray;
+        color: $white;
+        padding: 5px;
+        position: relative;
+        font-size: 14px;
+        text-align: center;
+
+        span {
+            display: block;
+
+            &:last-child {
+                color: $mainColor;
+            }
+        }
+
+        &:before {
+            content:'';
+            position: absolute;
+            bottom:100%;
+            width: 15px;
+            border-bottom: 15px solid $darkestGray;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            left: 10px;
+        }
+    }
+}
